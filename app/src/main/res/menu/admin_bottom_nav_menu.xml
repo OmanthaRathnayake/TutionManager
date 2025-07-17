@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_users"
+        android:title="Users"
+        android:icon="@android:drawable/ic_menu_manage" />
+    <item
+        android:id="@+id/nav_courses"
+        android:title="Courses"
+        android:icon="@drawable/ic_courses" />
+    <item
+        android:id="@+id/nav_reports"
+        android:title="Reports"
+        android:icon="@drawable/ic_report" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@android:drawable/ic_lock_power_off" />
+</menu>

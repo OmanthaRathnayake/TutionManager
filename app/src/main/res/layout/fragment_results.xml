@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp">
+
+
+
+        <!-- Select Student -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Student"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="4dp"/>
+        <Spinner
+            android:id="@+id/spinnerStudents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Enter Marks -->
+        <EditText
+            android:id="@+id/etMarks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Marks"
+            android:inputType="number"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Upload Button -->
+        <Button
+            android:id="@+id/btnUploadResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Result"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</ScrollView>
