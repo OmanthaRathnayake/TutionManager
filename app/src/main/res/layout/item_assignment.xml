@@ -34,35 +34,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="8dp">
-
+            android:gravity="center_vertical">
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Edit"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#4CAF50"
-                android:textColor="#fff" />
-
+                android:backgroundTint="#4CAF50"  android:textColor="@android:color/white"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="10dp" />
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnDelete"
-                android:text="Delete"
-                android:backgroundTint="#F44336"
-                android:textColor="#fff" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/btnViewSubmissions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="View Submissions"
-                android:layout_marginEnd="8dp"
-                android:backgroundTint="#2196F3"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
+                android:backgroundTint="#2196F3"  android:textColor="@android:color/white"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginEnd="10dp"/>
+            <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:backgroundTint="#F44336"  android:textColor="@android:color/white"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginEnd="10dp" />
 
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

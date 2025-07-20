@@ -3,6 +3,7 @@ package com.example.tutionmanager
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
@@ -23,14 +24,16 @@ class RegisterActivity: AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference("users")
 
-        val spinner = findViewById<Spinner>(R.id.roleSpinner)
-        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listOf("admin", "teacher", "student"))
+        val spinner = findViewById<AutoCompleteTextView>(R.id.roleSpinner)
+        spinner.setAdapter(ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, listOf("admin", "teacher", "student")))
+
 
         findViewById<Button>(R.id.registerBtn).setOnClickListener {
             val name = findViewById<EditText>(R.id.name).text.toString()
             val email = findViewById<EditText>(R.id.email).text.toString()
             val pass = findViewById<EditText>(R.id.password).text.toString()
-            val role = spinner.selectedItem.toString()
+            val role = spinner.text.toString()
+
 
             auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {

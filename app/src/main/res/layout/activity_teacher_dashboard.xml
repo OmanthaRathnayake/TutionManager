@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp"
-
-        android:background="#EEEEEE">
+        android:background="#E7DDFF">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/teacher_bottom_nav_menu" />
+        app:menu="@menu/teacher_bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        />
 
 </RelativeLayout>

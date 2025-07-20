@@ -7,15 +7,16 @@
     <item
         android:id="@+id/nav_assignments"
         android:title="Assignments"
-        android:icon="@android:drawable/ic_menu_upload" />
+        android:icon="@drawable/assignment"
+        />
     <item
         android:id="@+id/nav_materials"
         android:title="Materials"
-        android:icon="@android:drawable/ic_menu_upload" />
+        android:icon="@drawable/materials" />
     <item
         android:id="@+id/nav_results"
         android:title="Results"
-        android:icon="@android:drawable/ic_menu_edit" />
+        android:icon="@drawable/results" />
     <item
         android:id="@+id/nav_logout"
         android:title="Logout"

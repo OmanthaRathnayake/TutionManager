@@ -12,30 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TutionManager"
         tools:targetApi="31">
+
+        <!-- ✅ Launcher activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-
-        <!-- 🔐 Auth Activities -->
+        <!-- ✅ Make sure LoginActivity is defined -->
         <activity android:name=".LoginActivity" />
+
         <activity android:name=".RegisterActivity" />
-
-        <!-- 👨‍💼 Admin Area -->
         <activity android:name=".AdminDashboardActivity" />
-
-        <activity android:name=".TeacherDashboardActivity"/>
-
-
-
-
-
+        <activity android:name=".TeacherDashboardActivity" />
     </application>
+
 
 </manifest>

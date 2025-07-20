@@ -3,26 +3,33 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#E7DDFF">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        style="style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/etTitle"
         android:hint="Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        style="style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/etDescription"
         android:hint="Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUploadFile"
         android:text="Upload File "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#3F51B5"
+        />
 
 </LinearLayout>

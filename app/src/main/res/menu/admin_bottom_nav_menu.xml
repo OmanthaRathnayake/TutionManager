@@ -3,7 +3,7 @@
     <item
         android:id="@+id/nav_users"
         android:title="Users"
-        android:icon="@android:drawable/ic_menu_manage" />
+        android:icon="@drawable/users" />
     <item
         android:id="@+id/nav_courses"
         android:title="Courses"
