@@ -1,6 +1,7 @@
 package com.example.tutionmanager
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -12,8 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
+import com.example.tutionmanager.QRCodeUtils
 
-class RegisterActivity: AppCompatActivity() {
+
+class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
 
@@ -35,16 +40,61 @@ class RegisterActivity: AppCompatActivity() {
             val role = spinner.text.toString()
 
 
+            if (name.isEmpty() || email.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                 if (it.isSuccessful) {
                     val uid = auth.currentUser!!.uid
-                    val user = User(uid, name, email, role)
-                    dbRef.child(uid).setValue(user).addOnCompleteListener {
-                        Toast.makeText(this, "Registered!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, LoginActivity::class.java))
+                    val qrBitmap = QRCodeUtils.generateQRCode(uid)
+
+                    if (qrBitmap != null) {
+                        uploadQRCodeToFirebase(uid, name, email, role, qrBitmap)
+                    } else {
+                        val user = User(uid, name, email, role, "")
+                        saveUserToDatabase(uid, user)
                     }
+                } else {
+                    Toast.makeText(this, "Registration Failed: ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
+
+    private fun uploadQRCodeToFirebase(uid: String, name: String, email: String, role: String, bitmap: Bitmap) {
+        val storageRef = FirebaseStorage.getInstance().getReference("qrcodes/$uid.png")
+
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
+        val data = baos.toByteArray()
+
+        storageRef.putBytes(data)
+            .addOnSuccessListener {
+                storageRef.downloadUrl.addOnSuccessListener { uri ->
+                    val user = User(uid, name, email, role, uri.toString())
+                    saveUserToDatabase(uid, user)
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "QR Code upload failed", Toast.LENGTH_SHORT).show()
+                val user = User(uid, name, email, role, "")
+                saveUserToDatabase(uid, user)
+            }
+    }
+
+    private fun saveUserToDatabase(uid: String, user: User) {
+        dbRef.child(uid).setValue(user).addOnCompleteListener {
+            if (it.isSuccessful) {
+                Toast.makeText(this, "Registered!", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this, "Failed to save user", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }
+
+
