@@ -2,42 +2,42 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="65dp"
     android:layout_marginHorizontal="8dp"
-    android:elevation="6dp"
-    android:padding="12dp"
-    android:background="#FFFFFF"
-    android:radius="10dp">
+   android:layout_marginTop="70dp"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp"
+    android:padding="12dp">
 
     <LinearLayout
+
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
-        <!-- Material Title -->
         <TextView
-            android:id="@+id/tvMaterialTitle"
+            android:id="@+id/tvAssignmentTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Material Title"
+            android:text="Assignment Title"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#000" />
+            android:layout_marginBottom="8dp" />
 
-        <!-- Action Buttons Row -->
-        <LinearLayout
+        <TextView
+            android:id="@+id/tvAssignmentDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Description here"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="12dp"
-            android:paddingTop="8dp"
-            android:background="#F9F9F9"
-            android:padding="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
 
             <Button
-                android:id="@+id/btnDownload"
+                android:id="@+id/btnDownloadAssignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Download"
@@ -46,11 +46,11 @@
                 android:layout_marginEnd="8dp" />
 
             <Button
-                android:id="@+id/btnDelete"
+                android:id="@+id/btnSubmitAssignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete"
-                android:backgroundTint="#F44336"
+                android:text="Submit"
+                android:backgroundTint="#4CAF50"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>

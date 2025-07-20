@@ -23,14 +23,18 @@
         </activity>
 
 
-        <!-- 🔐 Auth Activities -->
+        <!--  Auth Activities -->
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
 
-        <!-- 👨‍💼 Admin Area -->
+        <!--  Admin Area -->
         <activity android:name=".AdminDashboardActivity" />
 
+        <!--  Teacher Area -->
         <activity android:name=".TeacherDashboardActivity"/>
+
+        <!--  Student Area -->
+        <activity android:name=".StudentDashboardActivity"/>
 
 
 

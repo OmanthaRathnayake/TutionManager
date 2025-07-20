@@ -69,7 +69,7 @@ class TeacherDashboardActivity: AppCompatActivity() {
                 else -> false
             }
         }
-
+        bottomNav.selectedItemId = R.id.nav_attendance
 
     }
     private fun loadAssignedCourses() {
@@ -84,6 +84,11 @@ class TeacherDashboardActivity: AppCompatActivity() {
                     if (assignedTeacher == teacherId) {
                         courseMap[id] = name
                     }
+                }
+
+                if (courseMap.isEmpty()) {
+                    Toast.makeText(this@TeacherDashboardActivity, "No courses assigned!", Toast.LENGTH_SHORT).show()
+                    return
                 }
 
                 val courseNames = courseMap.values.toList()
@@ -106,6 +111,8 @@ class TeacherDashboardActivity: AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {}
         })
     }
+
+
 
 
     private fun loadFragment(fragment: Fragment) {
